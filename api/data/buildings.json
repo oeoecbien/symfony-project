@@ -1,0 +1,80 @@
+[
+    {
+        "name": "Château Lenora",
+        "caste": "Guerrier",
+        "image": "/buildings/chateau-lenora.webp",
+        "price": 200,
+        "strength": 1000
+    },
+    {
+        "name": "Château Silken",
+        "caste": "Archer",
+        "image": "/buildings/chateau-silken.webp",
+        "price": 240,
+        "strength": 1200
+    },
+    {
+        "name": "Château Antoleme",
+        "caste": "Chevalier",
+        "image": "/buildings/chateau-antoleme.webp",
+        "price": 280,
+        "strength": 1400
+    },
+    {
+        "name": "Château Unflune",
+        "caste": "Elfe",
+        "image": "/buildings/chateau-unflune.webp",
+        "price": 320,
+        "strength": 1600
+    },
+    {
+        "name": "Château Stamlam",
+        "caste": "Magicien",
+        "image": "/buildings/chateau-stamlam.webp",
+        "price": 360,
+        "strength": 1800
+    },
+    {
+        "name": "Château Oakenfield",
+        "caste": "Erudit",
+        "image": "/buildings/chateau-oakenfield.webp",
+        "price": 400,
+        "strength": 2000
+    },
+    {
+        "name": "Château Hurlton",
+        "caste": "Gobelin",
+        "image": "/buildings/chateau-hurlton.webp",
+        "strength": 10000
+    },
+    {
+        "name": "Château Kaerndal",
+        "caste": "Bourreau",
+        "image": "/buildings/chateau-kaerndal.webp",
+        "strength": 10000
+    },
+    {
+        "name": "Château Merclefield",
+        "caste": "Enchanteur",
+        "image": "/buildings/chateau-merclefield.webp",
+        "strength": 15000
+    },
+    {
+        "name": "Château Direnwood",
+        "caste": "ElfeNoir",
+        "image": "/buildings/chateau-direnwood.webp",
+        "strength": 15000
+    },
+    {
+        "name": "Château Dragonspire",
+        "caste": "Sorcier",
+        "image": "/buildings/chateau-dragonspire.webp",
+        "strength": 20000
+    },
+    {
+        "name": "Château Perrigwyn",
+        "caste": "Mage",
+        "image": "/buildings/chateau-perrigwyn.webp",
+        "strength": 20000
+    }
+]

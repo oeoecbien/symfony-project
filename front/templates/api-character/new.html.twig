@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau personnage{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4">Nouveau personnage</h1>
+    <div class="col-6 offset-3">
+        {% for message in app.flashes('danger') %}
+            <div class="alert alert-danger">{{ message }}</div>
+        {% endfor %}
+        {{ include('api-character/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+
+        <a href="{{ path('app_character_index') }}" class="btn btn-secondary mt-3">Retour à la liste</a>
+    </div>
+{% endblock %}

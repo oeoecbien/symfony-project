@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des personnages{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="mb-4">Personnages de la Guilde</h1>
+
+        <div class="row">
+            {% for character in characters %}
+                <div class="col-md-4 mb-4">
+                    <twig:CharacterCard :character="character" />
+                </div>
+            {% else %}
+                <div class="col-12">
+                    <twig:Alert message="Aucun personnage trouvé." type="info" />
+                </div>
+            {% endfor %}
+        </div>
+
+        <p class="text-center mt-3">
+            <twig:Button label="Nouveau personnage" type="primary" url="{{ path('local_character_new') }}" />
+        </p>
+    </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des personnages{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4">Liste des personnages</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr class="text-center">
+                <th>Type</th>
+                <th>Identifiant</th>
+                <th>Nom</th>
+                <th>Surnom</th>
+                <th>Caste</th>
+                <th>Savoir</th>
+                <th>Intelligence</th>
+                <th>Force</th>
+                <th>Creation</th>
+                <th>Modification</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for character in characters %}
+            <tr class="text-center align-middle">
+                <td>{{ gender(character.kind)|raw }}{{ character.kind }}</td>
+                <td>{{ character.identifier|format_identifier }}</td>
+                <td>
+                    <a href="{{ path('app_character_show', {'identifier': character.identifier}) }}">{{ character.name }}</a>
+                </td>
+                <td>{{ character.surname }}</td>
+                <td>{{ character.caste }}</td>
+                <td>{{ character.knowledge }}</td>
+                <td>{{ character.intelligence }}</td>
+                <td>{{ character.strength }}</td>
+                <td>{{ character.creation ? character.creation|date('d/m/Y') : '' }}</td>
+                <td>{{ character.modification ? character.modification|date('d/m/Y') : '' }}</td>
+                <td class="text-nowrap">
+                    <a href="{{ path('app_character_edit', {'identifier': character.identifier}) }}" class="btn btn-warning btn-sm">Modifier</a>
+                    {{ include('api-character/_delete_form.html.twig', {'character': character, 'button_class': 'btn btn-danger btn-sm d-inline'}) }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">Aucun personnage trouvé.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p class="text-center">
+        <a href="{{ path('app_character_new') }}" class="btn btn-primary">Nouveau personnage</a>
+    </p>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ character.name }}{% endblock %}
+
+{% block body %}
+    <div class="col-lg-8 offset-lg-2">
+        <h1 class="mb-4">Fiche personnage</h1>
+
+        {% if character.image %}
+            <img
+                src="{{ character_media_base }}{{ character.image starts with '/' ? character.image : '/' ~ character.image }}"
+                alt="{{ character.name }}"
+                class="img-fluid rounded mb-4 d-block mx-auto"
+                style="max-height: 400px;"
+            >
+        {% endif %}
+
+        <div class="lead mb-4">
+            <p>Je m'appelle <strong>{{ character.name }}</strong>.</p>
+            <p>Je fais partie de La Guilde des Seigneurs !</p>
+            <p>Je suis {{ feminin(character.kind, 'un') }} <strong>{{ character.kind }}</strong> de la caste <strong>{{ character.caste|default('non renseignée') }}</strong>.</p>
+            <p>Mon surnom est <strong>{{ character.surname }}</strong>.</p>
+            <p>Mon intelligence est de <strong>{{ character.intelligence|default('?') }}</strong> et ma force de <strong>{{ character.strength|default('?') }}</strong>.</p>
+            {% if character.knowledge %}
+                <p>Je suis assez {{ feminin(character.kind, 'fort') }} dans <strong>{{ character.knowledge }}</strong>.</p>
+            {% endif %}
+            <p>Mon identifiant est <strong>{{ character.identifier|format_identifier }}</strong>.</p>
+            <p>J'ai une puissance de <strong>{{ character|puissance }}</strong>.</p>
+            <p>{{ gender(character.kind)|raw }} <strong>{{ character.kind }}</strong></p>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2">
+            <a href="{{ path('app_character_edit', {'identifier': character.identifier}) }}" class="btn btn-warning">Modifier</a>
+            {{ include('api-character/_delete_form.html.twig', {'button_class': 'btn btn-danger'}) }}
+            <a href="{{ path('app_character_index') }}" class="btn btn-secondary">Retour à la liste</a>
+        </div>
+    </div>
+{% endblock %}

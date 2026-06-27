@@ -1,0 +1,20 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: La Guilde des Seigneurs
+            description: API utilisee pour La Guilde des Seigneurs
+            version: "1.2"
+        components:
+            securitySchemes:
+                Bearer:
+                    type: http
+                    scheme: bearer
+                    bearerFormat: JWT
+        security:
+            - Bearer: []
+        servers:
+            - url: http://local.api.la-guilde-des-seigneurs.com
+              description: API Laragon (local)
+    areas: # to filter documented areas
+        path_patterns:
+            - ^/((?!api|_error).*$)

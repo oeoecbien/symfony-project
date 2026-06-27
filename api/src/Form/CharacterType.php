@@ -1,0 +1,52 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Form;
+
+use App\Entity\Character;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+class CharacterType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        $builder
+            ->add('name', TextType::class)
+            ->add('surname', TextType::class)
+            ->add('caste', TextType::class, ['required' => false])
+            ->add('knowledge', TextType::class, ['required' => false])
+            ->add('intelligence', IntegerType::class, ['required' => false])
+            ->add('strength', IntegerType::class, ['required' => false])
+            ->add('life', IntegerType::class, ['required' => false])
+            ->add('image', TextType::class, ['required' => false])
+            ->add('slug', TextType::class, ['required' => false])
+            ->add('kind', TextType::class)
+            ->add('creation', DateTimeType::class, [
+                'widget' => 'single_text',
+                'input' => 'datetime_immutable',
+                'required' => false,
+            ])
+            ->add('identifier', TextType::class, ['required' => false])
+            ->add('modification', DateTimeType::class, [
+                'widget' => 'single_text',
+                'input' => 'datetime_immutable',
+                'required' => false,
+            ])
+            ->add('user')
+        ;
+    }
+
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'data_class' => Character::class,
+            'csrf_protection' => false,
+        ]);
+    }
+}

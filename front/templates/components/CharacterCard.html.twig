@@ -1,0 +1,32 @@
+<div class="card character-card h-100">
+    {% if character.image %}
+        <img
+            src="{{ character_media_base }}{{ character.image starts with '/' ? character.image : '/' ~ character.image }}"
+            class="card-img-top"
+            alt="{{ character.name }}"
+            style="max-height: 220px; object-fit: cover;"
+        >
+    {% endif %}
+    <div class="card-body d-flex flex-column">
+        <h3 class="card-title h5">{{ character.name }}</h3>
+        <p class="card-text mb-1">{{ character.surname }}</p>
+        <p class="text-muted mb-2">{{ character.kind }}{% if character.caste %} · {{ character.caste }}{% endif %}</p>
+        {% if character.knowledge %}
+            <p class="small text-secondary mb-2">{{ character.knowledge }}</p>
+        {% endif %}
+        {% if showActions %}
+            <div class="mt-auto d-flex flex-wrap gap-2">
+                <twig:Button
+                    label="Voir"
+                    type="primary"
+                    url="{{ path('local_character_show', {id: character.id}) }}"
+                />
+                <twig:Button
+                    label="Modifier"
+                    type="warning"
+                    url="{{ path('local_character_edit', {id: character.id}) }}"
+                />
+            </div>
+        {% endif %}
+    </div>
+</div>

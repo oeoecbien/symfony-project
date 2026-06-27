@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier {{ character.name }}{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4">Modifier le personnage</h1>
+    <div class="col-6 offset-3">
+        {% for message in app.flashes('danger') %}
+            <div class="alert alert-danger">{{ message }}</div>
+        {% endfor %}
+        {{ include('api-character/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+        <div class="d-flex flex-wrap gap-2 mt-3">
+            <a href="{{ path('app_character_index') }}" class="btn btn-secondary">Retour à la liste</a>
+            {{ include('api-character/_delete_form.html.twig', {'button_class': 'btn btn-danger'}) }}
+        </div>
+    </div>
+{% endblock %}

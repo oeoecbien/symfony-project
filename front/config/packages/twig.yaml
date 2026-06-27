@@ -1,0 +1,9 @@
+twig:
+    form_themes: ['bootstrap_5_layout.html.twig']
+    file_name_pattern: '*.twig'
+    globals:
+        character_media_base: '%app.character_media_base%'
+
+when@test:
+    twig:
+        strict_variables: true
